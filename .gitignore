@@ -1,0 +1,1 @@
+*.vs\n*.exe\n*.dll\n*.obj\n*.user\n*.suo\nbin/\ndebug/\nrelease/
