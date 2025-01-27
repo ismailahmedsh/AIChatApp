@@ -1,1 +1,70 @@
-*.vs\n*.exe\n*.dll\n*.obj\n*.user\n*.suo\nbin/\ndebug/\nrelease/
+# Visual Studio files
+.vs/
+*.exe
+*.dll
+*.obj
+*.user
+*.suo
+bin/
+debug/
+release/
+
+# Streamlit secrets
+.streamlit/secrets.toml
+secrets.toml
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment
+venv/
+ENV/
+.env
+.venv
+pip-log.txt
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*.iml
+.project
+.pydevproject
+
+# OS
+.DS_Store
+Thumbs.db
+*.log
+Desktop.ini
+$RECYCLE.BIN/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb
+
+# Local development
+*.env
+.env.local
+.env.*.local
+*.log
+local_settings.py

@@ -1,0 +1,229 @@
+/* styles/styles.css */
+:root {
+    --primary: #1f78ff;
+    --text: #2c3e50;
+    --user-bg: #f0f2f6;
+    --bot-bg: #ffffff;
+    --message-border: #e6e6e6;
+    --message-wrapper-bg: #f8f9fa;
+}
+
+/* Original Chat Message Styles */
+.chat-message {
+    display: flex;
+    align-items: center;
+    margin: 15px 0;
+    padding: 18px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    gap: 1.5rem;
+}
+
+.chat-message.user {
+    justify-content: flex-end;
+    background-color: var(--user-bg);
+}
+
+.chat-message.bot {
+    justify-content: flex-start;
+    background-color: var(--bot-bg);
+    border: 1px solid var(--message-border);
+}
+
+.chat-message .icon {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.chat-message .icon svg {
+    width: 100%;
+    height: 100%;
+    stroke-width: 2.5;
+    color: black;
+}
+
+.chat-message.user .icon {
+    color: var(--text);
+    margin-left: 15px;
+}
+
+.chat-message.bot .icon {
+    color: var(--primary);
+    margin-right: 15px;
+}
+
+.chat-message .content {
+    max-width: 65%;
+    padding: 15px;
+    border-radius: 15px;
+    word-wrap: break-word;
+    border: 1px solid var(--message-border);
+    background: var(--message-wrapper-bg);
+    color: var(--text);
+}
+
+.chat-message:hover .icon {
+    transform: scale(1.1);
+    transition: transform 0.2s ease;
+}
+
+/* Quick Suggestions Styling Fix */
+div[data-testid="stHorizontalBlock"] button {
+    background-color: white !important;
+    color: var(--text) !important;
+    border: 1px solid var(--message-border) !important;
+    transition: all 0.3s ease;
+}
+
+div[data-testid="stHorizontalBlock"] button:hover {
+    background-color: var(--message-wrapper-bg) !important;
+    border-color: var(--primary) !important;
+}
+
+div[data-testid="stHorizontalBlock"] button p {
+    color: var(--text) !important;
+}
+
+/* Responsive Header and Navigation */
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: transparent;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.nav-title {
+    flex: 1;
+    min-width: 200px;
+}
+
+.nav-title h1 {
+    color: #a80303;
+    margin: 0;
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    line-height: 1.2;
+}
+
+.nav-title h4 {
+    margin: 0;
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: var(--text);
+}
+
+.nav-icons {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.nav-icons a {
+    color: var(--text) !important;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav-icons a:hover {
+    color: #ff4b4b !important;
+}
+
+.nav-icons i {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+/* Form Submit Button - Keep it Red */
+[data-testid="stForm"] button[type="submit"] {
+    background-color: #ff4b4b !important;
+    color: white !important;
+    border: none !important;
+}
+
+/* Mobile Responsive Design */
+@media screen and (max-width: 768px) {
+    .nav-container {
+        padding: 1rem;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .nav-title {
+        flex: 100%;
+        text-align: center;
+    }
+
+    .nav-icons {
+        justify-content: center;
+        width: 100%;
+        gap: 2rem;
+        margin-top: 1rem;
+    }
+
+    .chat-message .content {
+        max-width: 80%;
+    }
+}
+
+/* Small Mobile Devices */
+@media screen and (max-width: 480px) {
+    .nav-container {
+        padding: 0.5rem;
+    }
+
+    .nav-icons {
+        gap: 1.5rem;
+    }
+
+    .chat-message {
+        padding: 12px;
+        gap: 1rem;
+    }
+
+    .chat-message .content {
+        max-width: 85%;
+        padding: 12px;
+    }
+
+    .chat-message .icon {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/* Quick Suggestions Mobile Optimization */
+@media screen and (max-width: 768px) {
+    div[data-testid="stHorizontalBlock"] {
+        gap: 0.5rem !important;
+    }
+
+    div[data-testid="stHorizontalBlock"] button {
+        margin: 0.25rem 0 !important;
+        padding: 0.5rem !important;
+    }
+
+    div[data-testid="element-container"] button {
+        margin: 0.25rem 0 !important;
+        padding: 0.5rem !important;
+        min-height: unset !important;
+    }
+
+    /* Reduce spacing around quick suggestions section */
+    h4 {
+        margin-bottom: 0.5rem !important;
+        margin-left: 0.5rem !important;
+    }
+
+    /* Make buttons more compact on mobile */
+    button {
+        min-height: unset !important;
+        height: auto !important;
+        padding: 0.75rem !important;
+        margin: 0.25rem 0 !important;
+    }
+}
