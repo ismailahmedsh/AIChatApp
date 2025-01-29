@@ -33,15 +33,9 @@ def registration_form():
             company = st.text_input("Company (Optional)", key="company")
             role = st.text_input("Job Role (Optional)", key="role")
             interests = st.multiselect(
-                "Areas of Interest (Optional)",
-                ["AI/ML", "Web Development", "Data Science", "Cloud Computing", "DevOps", "Other"],
-                key="interests"
-            )
-            
-            # Purpose of visit
-            purpose = st.radio(
                 "Purpose of Visit (Optional)",
-                ["Professional Networking", "Recruitment", "Learning", "Other"]
+                ["Professional Networking", "Recruitment", "Learning", "Other"],
+                key="interests"
             )
             
             submitted = st.form_submit_button("Submit")
@@ -67,7 +61,6 @@ def registration_form():
                     "company": company,
                     "role": role,
                     "interests": interests,
-                    "purpose": purpose
                 }
                 
                 # Show loading message

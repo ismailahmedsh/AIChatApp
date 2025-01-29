@@ -44,8 +44,6 @@ def sidebar():
         with cols[2]:
             st.markdown("""
                 <div style="text-align: center;">
-                    <a href="https://hits.seeyoufarm.com">
-                        <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fismailahmedsh.github.io%2Fportofolio&count_bg=%23555655&title_bg=%23C9C5C5&icon=openai.svg&icon_color=%23605E5E&title=hits&edge_flat=false"/>
-                    </a>
+                    <a href="https://hits.seeyoufarm.com"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fahmedshehata.streamlit.app&count_bg=%2300F3FF&title_bg=%23DD0909&icon=ionic.svg&icon_color=%23010101&title=Views&edge_flat=false"/></a>
                 </div>
                 """, unsafe_allow_html=True)

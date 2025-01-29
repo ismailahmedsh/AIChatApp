@@ -1,6 +1,6 @@
 # app.py
 import streamlit as st
-from components.quick_suggestions import display_quick_suggestions
+from components.quick_suggestions import display_quick_suggestions, process_pending_question
 from components.sidebar import sidebar
 from components.reset import reset_button
 from components.user_input import user_input_process
@@ -12,8 +12,7 @@ if 'messages' not in st.session_state:
     st.session_state.update({
         'messages': [],
         'show_suggestions': True,
-        'clicked_questions': [],
-        'is_registered': False,
+        'is_registered': False,  # Removed clicked_questions
     })
 
 # Set page configuration
@@ -65,8 +64,9 @@ else:
     # Customize chat based on registration info
     customize_chat_based_on_registration()
 
-    # Display components
+    # Display components with proper execution order
     message_display()
     display_quick_suggestions()
+    process_pending_question()  # Handle any clicked questions
     user_input_process()
     reset_button()

@@ -5,7 +5,33 @@
     --user-bg: #f0f2f6;
     --bot-bg: #ffffff;
     --message-border: #e6e6e6;
-    --message-wrapper-bg: #f8f9fa;
+    --message-wrapper-bg: #ffffff;  /* Changed to white for light theme */
+    --content-bg: #ffffff;  /* New variable for content background */
+}
+
+/* Dark theme overrides */
+[data-theme="dark"] {
+    --primary: #1f78ff;
+    --text: #FAFAFA;
+    --user-bg: #1E2126;
+    --bot-bg: #262B32;
+    --message-border: #4a4a4a;
+    --message-wrapper-bg: #1A1D21;
+    --content-bg: #262B32;  /* Dark theme content background */
+}
+
+/* Make ALL container elements transparent */
+section[data-testid="stSidebar"] > div,
+section.main div[class*="stMarkdown"],
+section.main div[data-testid*="stMarkdownContainer"],
+section.main div[class*="element-container"],
+section.main div[class*="stMarkdown"] > div,
+div[data-testid="stMarkdownContainer"] > div,
+.element-container div,
+.stMarkdown div:first-child,
+.stMarkdown > div > p {
+    background-color: transparent !important;
+    border: none !important;
 }
 
 /* Original Chat Message Styles */
@@ -21,12 +47,12 @@
 
 .chat-message.user {
     justify-content: flex-end;
-    background-color: var(--user-bg);
+    background-color: var(--user-bg) !important;
 }
 
 .chat-message.bot {
     justify-content: flex-start;
-    background-color: var(--bot-bg);
+    background-color: var(--bot-bg) !important;
     border: 1px solid var(--message-border);
 }
 
@@ -43,7 +69,7 @@
     width: 100%;
     height: 100%;
     stroke-width: 2.5;
-    color: black;
+    color: var(--text);
 }
 
 .chat-message.user .icon {
@@ -56,14 +82,35 @@
     margin-right: 15px;
 }
 
-.chat-message .content {
+/* Enhanced content styles with better specificity */
+div[class*="element-container"] .chat-message .content,
+div[class*="element-container"] .chat-message.bot .content,
+div[class*="element-container"] .chat-message.user .content {
     max-width: 65%;
     padding: 15px;
     border-radius: 15px;
     word-wrap: break-word;
     border: 1px solid var(--message-border);
-    background: var(--message-wrapper-bg);
-    color: var(--text);
+    background-color: var(--content-bg) !important;
+    color: var(--text) !important;
+}
+
+/* Dark theme specific content styles */
+body[data-theme="dark"] div[class*="element-container"] .chat-message .content,
+body[data-theme="dark"] div[class*="element-container"] .chat-message.bot .content,
+body[data-theme="dark"] div[class*="element-container"] .chat-message.user .content {
+    background-color: var(--content-bg) !important;
+    color: var(--text) !important;
+    border-color: var(--message-border) !important;
+}
+
+/* Light theme specific content styles */
+body:not([data-theme="dark"]) div[class*="element-container"] .chat-message .content,
+body:not([data-theme="dark"]) div[class*="element-container"] .chat-message.bot .content,
+body:not([data-theme="dark"]) div[class*="element-container"] .chat-message.user .content {
+    background-color: var(--content-bg) !important;
+    color: var(--text) !important;
+    border-color: var(--message-border) !important;
 }
 
 .chat-message:hover .icon {
@@ -73,7 +120,7 @@
 
 /* Quick Suggestions Styling Fix */
 div[data-testid="stHorizontalBlock"] button {
-    background-color: white !important;
+    background-color: var(--bot-bg) !important;
     color: var(--text) !important;
     border: 1px solid var(--message-border) !important;
     transition: all 0.3s ease;

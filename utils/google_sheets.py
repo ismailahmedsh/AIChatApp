@@ -48,8 +48,7 @@ def append_to_sheet(user_data):
             user_data["email"],
             user_data.get("company", ""),
             user_data.get("role", ""),
-            ", ".join(user_data.get("interests", [])),
-            user_data.get("purpose", "")
+            ", ".join(user_data.get("interests", []))
         ]
 
         request = service.spreadsheets().values().append(
