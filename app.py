@@ -6,6 +6,7 @@ from components.reset import reset_button
 from components.user_input import user_input_process
 from components.message_display import message_display
 from components.registration_form import registration_form, customize_chat_based_on_registration
+from utils.keep_alive import keep_alive_manager
 
 # Initialize session state
 if 'messages' not in st.session_state:
@@ -14,6 +15,8 @@ if 'messages' not in st.session_state:
         'show_suggestions': True,
         'is_registered': False,  # Removed clicked_questions
     })
+    # Start keep-alive service when app initializes
+    keep_alive_manager.start()
 
 # Set page configuration
 st.set_page_config(page_title="Ahmed Shehata", layout="wide")
